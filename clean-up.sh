@@ -20,7 +20,7 @@ find ~/Downloads -maxdepth 1 -type f -name "*.jpg" -o -name "*.jpeg" -o -name "*
 done
 
 # Move spreadsheet type files
-find ~/Downloads -maxdepth 1 -type f -name "*.csv" -o -name "*.xls" -o -name "*.xlsx" |while IFS= read -r spreadsheet; do
+find ~/Downloads -maxdepth 1 -type f -name "*.csv" -o -name "*.xls" -o -name "*.xlsx" -o -name "*.CSV" -o -name "*.ods" |while IFS= read -r spreadsheet; do
    mkdir -p ~/Downloads/spreadsheets
    mv -- $spreadsheet ~/Downloads/spreadsheets
 done
@@ -32,21 +32,33 @@ find ~/Downloads -maxdepth 1 -type f -name "*.pdf" |while IFS= read -r pdf; do
 done
 
 # Move videos type files
-find ~/Downloads -maxdepth 1 -type f -name "*.mov" -o -name "*.m4v" -o -name "*.avi" -o -name "*.mpg" -o -name "*.mpeg" -o -name "*.mp4" |while IFS= read -r video; do
+find ~/Downloads -maxdepth 1 -type f -name "*.mov" -o -name "*.m4v" -o -name "*.avi" -o -name "*.mpg" -o -name "*.mpeg" -o -name "*.mp4" -o -name "*.m4a" -o -name "*.mkv" |while IFS= read -r video; do
    mkdir -p ~/Downloads/videos
    mv -- $video ~/Downloads/videos
 done
 
 # Move zip type files
-find ~/Downloads -maxdepth 1 -type f -name "*.zip" |while IFS= read -r zip; do
+find ~/Downloads -maxdepth 1 -type f -name "*.zip" -o -name "*.tgz" |while IFS= read -r zip; do
    mkdir -p ~/Downloads/zip
    mv -- $zip ~/Downloads/zip
 done
 
 # Move text type files
-find ~/Downloads -maxdepth 1 -type f -name "*.txt" |while IFS= read -r text; do
+find ~/Downloads -maxdepth 1 -type f -name "*.txt" -o -name "*.pptx" -o -name "*.docx" |while IFS= read -r text; do
    mkdir -p ~/Downloads/text
    mv -- $text ~/Downloads/text
+done
+
+# Move text type files
+find ~/Downloads -maxdepth 1 -type f -name "*.epub" |while IFS= read -r text; do
+   mkdir -p ~/Downloads/digital_books
+   mv -- $text ~/Downloads/digital_books
+done
+
+# Move text type files
+find ~/Downloads -maxdepth 1 -type f -name "*.sql" -o -name "*.json" -o -name "*.dump" -o -name "*.gpx" -o -name "*.db" -o -name "*.log" |while IFS= read -r text; do
+   mkdir -p ~/Downloads/data
+   mv -- $text ~/Downloads/data
 done
 
 echo '*******************************************'
